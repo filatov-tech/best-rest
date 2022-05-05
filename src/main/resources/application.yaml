@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:bestrestdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        default_batch_fetch_size: 20
+  h2:
+    console:
+      enabled: true
