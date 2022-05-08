@@ -18,11 +18,10 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(callSuper = true, exclude = {"password"})
 @Entity
 @Table(name = "users")
 
-public class User extends AbstractPersistable<Integer> {
+public class User extends AbstractBaseEntity {
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotEmpty
@@ -33,9 +32,7 @@ public class User extends AbstractPersistable<Integer> {
     @Size(min = 6, max = 32)
     private String password;
 
-    @OneToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "vote_id")
+    @OneToOne(mappedBy = "user")
     private Vote vote;
 
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
@@ -49,4 +46,13 @@ public class User extends AbstractPersistable<Integer> {
         vote.setUser(this);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", vote=" + (vote != null ? vote.getId().toString() : null) +
+                ", roles=" + roles +
+                '}';
+    }
 }

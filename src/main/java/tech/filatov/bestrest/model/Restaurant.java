@@ -1,11 +1,7 @@
 package tech.filatov.bestrest.model;
 
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,13 +12,23 @@ import java.util.Set;
 @AllArgsConstructor
 public class Restaurant extends AbstractNamedEntity{
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     private Set<Vote> votes;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     private Set<Dish> dishes;
 
     public Restaurant(Integer id, String name) {
         super(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", votes=" + votes +
+                ", dishes=" + dishes +
+                '}';
     }
 }

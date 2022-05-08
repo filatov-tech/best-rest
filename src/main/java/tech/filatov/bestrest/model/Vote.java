@@ -1,9 +1,6 @@
 package tech.filatov.bestrest.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -19,7 +16,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Vote extends AbstractBaseEntity{
 
-    @OneToOne(mappedBy = "vote")
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     protected User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,4 +29,14 @@ public class Vote extends AbstractBaseEntity{
     @Column(name = "date_time")
     @NotNull
     protected LocalDateTime dateTime;
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", user=" + user +
+                ", restaurant=" + restaurant +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }
