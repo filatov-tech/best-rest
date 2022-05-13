@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -30,12 +31,11 @@ public class Dish extends AbstractNamedEntity{
 
     @Column(name = "date", nullable = false, columnDefinition = "date default now()", updatable = false)
     @NotNull
-    private Date date = new Date();
+    private LocalDate date = LocalDate.now();
 
-    public Dish(Integer id, String name, int price, Restaurant restaurant) {
+    public Dish(Integer id, String name, int price) {
         super(id, name);
         this.price = price;
-        this.restaurant = restaurant;
     }
 
     @Override

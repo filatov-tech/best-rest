@@ -2,7 +2,7 @@ package tech.filatov.bestrest.model;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "restaurant")
@@ -13,10 +13,10 @@ import java.util.Set;
 public class Restaurant extends AbstractNamedEntity{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
-    private Set<Vote> votes;
+    private List<Vote> votes;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
-    private Set<Dish> dishes;
+    private List<Dish> dishes;
 
     public Restaurant(Integer id, String name) {
         super(id, name);
