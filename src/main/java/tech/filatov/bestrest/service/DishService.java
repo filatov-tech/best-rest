@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.service;
 
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import tech.filatov.bestrest.model.Dish;
 import tech.filatov.bestrest.model.Restaurant;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import static tech.filatov.bestrest.util.ValidationUtil.checkNotFoundWithId;
 
+@Service
 public class DishService {
     private final DishRepository dishRepository;
 

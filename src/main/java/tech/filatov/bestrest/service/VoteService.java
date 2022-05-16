@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.service;
 
+import org.springframework.stereotype.Service;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.model.Vote;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static tech.filatov.bestrest.util.ValidationUtil.*;
 
+@Service
 public class VoteService {
     private final VoteRepository voteRepository;
     private final UserRepository userRepository;

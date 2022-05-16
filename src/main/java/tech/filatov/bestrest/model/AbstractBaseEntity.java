@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,10 @@ abstract public class AbstractBaseEntity implements Persistable<Integer> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     protected Integer id;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public Integer getId() {
         return id;
@@ -30,6 +35,7 @@ abstract public class AbstractBaseEntity implements Persistable<Integer> {
         return id;
     }
 
+    @JsonIgnore
     @Override
     public boolean isNew() {
         return this.id == null;

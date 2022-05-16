@@ -6,8 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.User;
 
+import java.util.Optional;
+
 public interface UserJpaRepository extends JpaRepository<User, Integer> {
-    User getByEmail(String email);
+
+    @Query("SELECT u FROM User u WHERE u.email=LOWER(:email)")
+    Optional<User> findByEmailIgnoreCase(String email);
 
     @Transactional
     @Modifying

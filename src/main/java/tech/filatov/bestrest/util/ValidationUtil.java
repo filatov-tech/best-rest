@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.util;
 
+import tech.filatov.bestrest.model.AbstractBaseEntity;
 import tech.filatov.bestrest.util.exception.NotFoundException;
 
 public class ValidationUtil {
@@ -20,6 +21,14 @@ public class ValidationUtil {
     public static void checkNotFound(boolean found, String msg) {
         if (!found) {
             throw new NotFoundException("Not found entity with " + msg);
+        }
+    }
+
+    public static void assureIdConsistent(AbstractBaseEntity entity, int id) {
+        if (entity.isNew()) {
+            entity.setId(id);
+        } else if (entity.id() != id) {
+            throw new IllegalArgumentException(entity + " must be with id=" + id);
         }
     }
 }

@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Set;
 
 @Getter
@@ -21,7 +22,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 
-public class User extends AbstractBaseEntity {
+public class User extends AbstractBaseEntity implements Serializable {
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotEmpty

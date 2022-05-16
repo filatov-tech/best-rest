@@ -7,6 +7,7 @@ import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import static tech.filatov.bestrest.util.ValidationUtil.*;
 
@@ -39,5 +40,9 @@ public class UserService {
 
     public List<User> getAll() {
         return repository.getAll();
+    }
+
+    public User getByEmail(String email) {
+        return repository.getByEmail(email);
     }
 }

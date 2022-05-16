@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import tech.filatov.bestrest.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserRepository {
@@ -33,7 +34,7 @@ public class UserRepository {
     }
 
     public User getByEmail(String email) {
-        return repository.getByEmail(email);
+        return repository.findByEmailIgnoreCase(email).orElse(null);
     }
 
     public List<User> getAll() {

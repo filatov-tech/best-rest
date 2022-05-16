@@ -6,6 +6,8 @@ import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.repository.DishRepository;
 import tech.filatov.bestrest.repository.RestaurantRepository;
 
+import java.util.List;
+
 import static tech.filatov.bestrest.util.ValidationUtil.*;
 
 @Service
@@ -38,6 +40,10 @@ public class RestaurantService {
 
     public Restaurant getWithVotes(int id) {
         return checkNotFoundWithId(restaurantRepository.getWithVotes(id), id);
+    }
+
+    public List<Restaurant> getAll() {
+        return restaurantRepository.getAll();
     }
 
     public void delete(int id) {

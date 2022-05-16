@@ -17,8 +17,14 @@ spring:
   h2:
     console:
       enabled: true
+  data.rest:
+    base-path: /api
+    return-body-on-create: true
+
 logging:
   level:
+    root: WARN
+    tech.filatov.bestrest: DEBUG
     org:
       hibernate:
         type:

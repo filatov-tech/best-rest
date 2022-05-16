@@ -29,18 +29,18 @@ public class BestRestApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        userRepository.save(new User("filatov.dd@yandex.ru", "123456", null, Set.of(Role.USER)));
-        userRepository.save(new User("fotbal@mail.ru", "adsfgh", null, Set.of(Role.ADMIN, Role.USER)));
-        userRepository.save(new User("chizhan@mail.com", "qwerty", null, Set.of(Role.USER)));
-        userRepository.save(new User("shanya@milo.ta", "tuttyFrutty", null, Set.of(Role.USER)));
+        userRepository.save(new User("filatov.dd@yandex.ru", "{noop}123456", null, Set.of(Role.USER)));
+        userRepository.save(new User("fotbal@mail.ru", "{noop}adsfgh", null, Set.of(Role.ADMIN, Role.USER)));
+        userRepository.save(new User("chizhan@mail.com", "{noop}qwerty", null, Set.of(Role.USER)));
+        userRepository.save(new User("shanya@milo.ta", "{noop}tuttyFrutty", null, Set.of(Role.USER)));
 
         Restaurant surf = restaurantRepository.save(new Restaurant(null, "Surf Coffee"));
         dishRepository.save(new Dish(null, "Filtered Coffee", 350), surf.id());
-        dishRepository.save(new Dish(null, "Latte Lichi Rosa", 450), surf.id());
+        dishRepository.save(new Dish(null, "Latte Litchi Rosa", 450), surf.id());
         dishRepository.save(new Dish(null, "Sweet Pipe", 450), surf.id());
 
         Restaurant stim = restaurantRepository.save(new Restaurant(null, "Stim"));
-        dishRepository.save(new Dish(null, "Sharlott", 390), stim.id());
+        dishRepository.save(new Dish(null, "Charlott", 390), stim.id());
         dishRepository.save(new Dish(null, "Phoebe", 400), stim.id());
         dishRepository.save(new Dish(null, "Walter", 410), stim.id());
     }
