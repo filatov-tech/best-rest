@@ -10,7 +10,6 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "dish")
@@ -27,9 +26,10 @@ public class Dish extends AbstractNamedEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @NotNull
     private Restaurant restaurant;
 
-    @Column(name = "date", nullable = false, columnDefinition = "date default now()", updatable = false)
+    @Column(name = "date", columnDefinition = "date default now()", updatable = false)
     @NotNull
     private LocalDate date = LocalDate.now();
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Setter
 abstract public class AbstractNamedEntity extends AbstractBaseEntity{
     @NotBlank
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     @Size(min = 2, max = 128)
     protected String name;
 

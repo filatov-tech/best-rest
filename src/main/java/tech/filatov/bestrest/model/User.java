@@ -11,6 +11,7 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
@@ -23,12 +24,14 @@ import java.util.Set;
 @Table(name = "users")
 
 public class User extends AbstractBaseEntity implements Serializable {
-    @Column(name = "email", nullable = false, unique = true)
-    @Email
+    @Column(name = "email", unique = true)
+    @NotNull
     @NotEmpty
+    @Email
     private String email;
 
     @Column(name = "password")
+    @NotNull
     @NotEmpty
     @Size(min = 6, max = 32)
     private String password;
