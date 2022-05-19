@@ -43,6 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/api/profile").hasRole(Role.USER.name())
                 .antMatchers("/api/admin/**").hasRole(Role.ADMIN.name())
+                .antMatchers("/h2-console/**").permitAll()
+                .and().headers().frameOptions().sameOrigin()
                 .and().httpBasic()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().csrf().disable();
