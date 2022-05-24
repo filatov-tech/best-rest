@@ -1,4 +1,4 @@
-package tech.filatov.bestrest.web.user;
+package tech.filatov.bestrest.web.restaurant;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
@@ -14,18 +14,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/restaurants")
 @AllArgsConstructor
-public class RestaurantUserController {
+public class RestaurantController extends AbstractRestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Restaurant get(@PathVariable int id) {
-        Restaurant restaurant = restaurantService.getWithDishes(id);
+        Restaurant restaurant = super.getWithDishes(id);
         restaurant.setVotes(null);
         return restaurant;
     }
 
     @GetMapping
     public List<Restaurant> getAll() {
-        return restaurantService.getAll();
+        return super.getAll();
     }
 }

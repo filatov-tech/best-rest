@@ -1,4 +1,4 @@
-package tech.filatov.bestrest.web.admin;
+package tech.filatov.bestrest.web.user;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

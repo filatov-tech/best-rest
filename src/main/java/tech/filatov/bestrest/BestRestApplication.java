@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tech.filatov.bestrest.model.*;
 import tech.filatov.bestrest.repository.*;
 import tech.filatov.bestrest.service.UserService;
+import tech.filatov.bestrest.service.VoteService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +21,7 @@ public class BestRestApplication implements ApplicationRunner {
     private final UserRepository userRepository;
     private final RestaurantRepository restaurantRepository;
     private final VoteRepository voteRepository;
+    private final VoteService voteService;
     private final DishRepository dishRepository;
     private final UserService userService;
 
@@ -43,5 +45,7 @@ public class BestRestApplication implements ApplicationRunner {
         dishRepository.save(new Dish(null, "Charlott", 390), stim.id());
         dishRepository.save(new Dish(null, "Phoebe", 400), stim.id());
         dishRepository.save(new Dish(null, "Walter", 410), stim.id());
+
+        voteService.vote(100008, 100000);
     }
 }

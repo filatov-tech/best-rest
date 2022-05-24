@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Restaurant extends AbstractNamedEntity{
     private List<Vote> votes;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
+    @JsonManagedReference
     private List<Dish> dishes;
 
     public Restaurant(Integer id, String name) {

@@ -15,7 +15,7 @@ import static tech.filatov.bestrest.util.ValidationUtil.assureIdConsistent;
 @RestController
 @RequestMapping(value = "/api/profile", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
-public class ProfileRestController {
+public class ProfileController extends AbstractUserController {
 
     private final UserService userService;
 

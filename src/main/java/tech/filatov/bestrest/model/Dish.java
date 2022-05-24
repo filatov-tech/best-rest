@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Dish extends AbstractNamedEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
     @NotNull
     private Restaurant restaurant;
 
