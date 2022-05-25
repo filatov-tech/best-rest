@@ -25,7 +25,7 @@ public class DishRepository {
         return repository.findById(id).orElse(null);
     }
 
-    public Dish save(Dish dish, int restaurantId) {
+    public Dish save(Dish dish, Integer restaurantId) {
         if (dish.isNew()) {
             dish.setRestaurant(restaurantJpaRepository.getById(restaurantId));
         }
@@ -34,6 +34,10 @@ public class DishRepository {
 
     public List<Dish> getAll() {
         return repository.findAll(SORT_DATE_NAME);
+    }
+
+    public List<Dish> getAllByRestaurant(Restaurant restaurant) {
+        return repository.getAllByRestaurant(restaurant, SORT_DATE_NAME);
     }
 
     public List<Dish> getAllByDateAndRestaurant(LocalDate date, Restaurant restaurant) {
