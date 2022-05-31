@@ -7,11 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tech.filatov.bestrest.model.*;
 import tech.filatov.bestrest.repository.*;
-import tech.filatov.bestrest.service.UserService;
 import tech.filatov.bestrest.service.VoteService;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
@@ -23,7 +20,6 @@ public class BestRestApplication implements ApplicationRunner {
     private final VoteRepository voteRepository;
     private final VoteService voteService;
     private final DishRepository dishRepository;
-    private final UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(BestRestApplication.class, args);

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tech.filatov.bestrest.model.Restaurant;
-import tech.filatov.bestrest.service.RestaurantService;
 
 import java.util.List;
 
@@ -15,7 +14,6 @@ import java.util.List;
 @RequestMapping("/api/restaurants")
 @AllArgsConstructor
 public class RestaurantController extends AbstractRestaurantController {
-    private final RestaurantService restaurantService;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Restaurant get(@PathVariable int id) {

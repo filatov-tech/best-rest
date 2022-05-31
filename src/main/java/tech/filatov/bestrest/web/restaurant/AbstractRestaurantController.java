@@ -2,7 +2,7 @@ package tech.filatov.bestrest.web.restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import tech.filatov.bestrest.model.Restaurant;
-import tech.filatov.bestrest.service.RestaurantService;
+import tech.filatov.bestrest.repository.RestaurantRepository;
 
 import java.util.List;
 
@@ -11,31 +11,35 @@ import static tech.filatov.bestrest.util.ValidationUtil.*;
 public abstract class AbstractRestaurantController {
 
     @Autowired
-    private RestaurantService restaurantService;
+    private RestaurantRepository restaurantRepository;
 
     public Restaurant get(int id) {
-        return restaurantService.get(id);
+        return restaurantRepository.get(id);
     }
 
     public List<Restaurant> getAll() {
-        return restaurantService.getAll();
+        return restaurantRepository.getAll();
     }
 
     public Restaurant getWithDishes(int id) {
-        return restaurantService.getWithDishes(id);
+        return restaurantRepository.getWithDishes(id);
+    }
+
+    public Restaurant getWithVotes(int id) {
+        return restaurantRepository.getWithVotes(id);
     }
 
     public void delete(int id) {
-        restaurantService.delete(id);
+        restaurantRepository.delete(id);
     }
 
     public void update(Restaurant restaurant, int id) {
         assureIdConsistent(restaurant, id);
-        restaurantService.update(restaurant);
+        restaurantRepository.save(restaurant);
     }
 
     public Restaurant create(Restaurant restaurant) {
         checkNew(restaurant);
-        return restaurantService.create(restaurant);
+        return restaurantRepository.save(restaurant);
     }
 }
