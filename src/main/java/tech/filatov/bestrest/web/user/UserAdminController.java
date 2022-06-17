@@ -9,8 +9,8 @@ import tech.filatov.bestrest.model.User;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
-public class UserController extends AbstractUserController {
+@RequestMapping("/api/admin/users")
+public class UserAdminController extends AbstractUserController {
 
     @GetMapping("/{id}")
     public User get(@PathVariable int id) {

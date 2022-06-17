@@ -9,6 +9,7 @@ import tech.filatov.bestrest.model.*;
 import tech.filatov.bestrest.repository.*;
 import tech.filatov.bestrest.service.VoteService;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @SpringBootApplication
@@ -41,7 +42,5 @@ public class BestRestApplication implements ApplicationRunner {
         dishRepository.save(new Dish(null, "Charlott", 390), stim.id());
         dishRepository.save(new Dish(null, "Phoebe", 400), stim.id());
         dishRepository.save(new Dish(null, "Walter", 410), stim.id());
-
-        voteService.vote(100008, 100000);
     }
 }

@@ -7,12 +7,13 @@ import tech.filatov.bestrest.model.Vote;
 import tech.filatov.bestrest.repository.RestaurantRepository;
 import tech.filatov.bestrest.repository.UserRepository;
 import tech.filatov.bestrest.repository.VoteRepository;
-import tech.filatov.bestrest.util.TimeLimitUtil;
+import tech.filatov.bestrest.util.exception.AlreadyVotedException;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import static tech.filatov.bestrest.util.ValidationUtil.*;
+import static tech.filatov.bestrest.util.TimeLimitUtil.*;
 
 @Service
 public class VoteService {
@@ -27,15 +28,17 @@ public class VoteService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public void vote(int restaurantId, int userId) {
+    public void voteForRestaurant(int restaurantId, int userId) {
         Restaurant restaurant = restaurantRepository.getRef(restaurantId);
         User user = userRepository.get(userId);
         Vote vote = user.getVote();
 
-        if (vote != null && TimeLimitUtil.canChangeVote(vote.getDateTime())) {
+        if (vote == null || userNotVotingToday(vote.getDateTime())) {
+            vote = new Vote(user, restaurant, LocalDateTime.now());
+        } else if (canChangeTodaysVote()) {
             vote.setRestaurant(restaurant);
         } else {
-            vote = new Vote(user, restaurant, LocalDateTime.now());
+           throw new AlreadyVotedException("User with id=" + userId + " is already voted. Vote can only be changed until 11:00 AM");
         }
         voteRepository.save(vote);
     }
