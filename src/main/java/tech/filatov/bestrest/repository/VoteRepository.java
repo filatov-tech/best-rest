@@ -3,6 +3,7 @@ package tech.filatov.bestrest.repository;
 import org.springframework.stereotype.Repository;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.model.Vote;
+import tech.filatov.bestrest.model.dto.VoteTo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -26,7 +27,10 @@ public class VoteRepository {
     }
 
     public List<Vote> getRestaurantVotes(Restaurant restaurant) {
-        return repository.getAllByRestaurantAndDateTimeIsAfter(restaurant, LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
+        return repository.getVotesByRestaurantAndDateTimeIsAfter(restaurant, LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
     }
 
+    public List<VoteTo> getUserVotes(int userId) {
+        return repository.getUserVote(userId);
+    }
 }

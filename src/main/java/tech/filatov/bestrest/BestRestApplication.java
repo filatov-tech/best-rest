@@ -42,5 +42,7 @@ public class BestRestApplication implements ApplicationRunner {
         dishRepository.save(new Dish(null, "Charlott", 390), stim.id());
         dishRepository.save(new Dish(null, "Phoebe", 400), stim.id());
         dishRepository.save(new Dish(null, "Walter", 410), stim.id());
+
+        voteService.voteForRestaurant(100004, 100000);
     }
 }
