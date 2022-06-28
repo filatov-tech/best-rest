@@ -9,7 +9,6 @@ import tech.filatov.bestrest.model.*;
 import tech.filatov.bestrest.repository.*;
 import tech.filatov.bestrest.service.VoteService;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @SpringBootApplication
@@ -29,7 +28,7 @@ public class BestRestApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         userRepository.save(new User("filatov.dd@yandex.ru", "{noop}123456", null, Set.of(Role.USER)));
-        userRepository.save(new User("fotbal@mail.ru", "{noop}adsfgh", null, Set.of(Role.ADMIN, Role.USER)));
+        userRepository.save(new User("fotbal@mail.ru", "{noop}234567", null, Set.of(Role.ADMIN, Role.USER)));
         userRepository.save(new User("chizhan@mail.com", "{noop}qwerty", null, Set.of(Role.USER)));
         userRepository.save(new User("shanya@milo.ta", "{noop}tuttyFrutty", null, Set.of(Role.USER)));
 

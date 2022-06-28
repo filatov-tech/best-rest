@@ -16,11 +16,11 @@ import java.util.List;
 public class Restaurant extends AbstractNamedEntity{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Vote> votes;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Dish> dishes;
 
     public Restaurant(Integer id, String name) {

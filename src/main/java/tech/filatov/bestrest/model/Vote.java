@@ -29,7 +29,7 @@ public class Vote extends AbstractBaseEntity {
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonManagedReference
+    @JsonBackReference
     protected Restaurant restaurant;
 
     @Column(name = "date_time")
