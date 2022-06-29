@@ -1,6 +1,7 @@
 package tech.filatov.bestrest.web.restaurant;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,8 +28,9 @@ public class RestaurantAdminController extends AbstractRestaurantController {
         return super.getAll();
     }
 
-    @DeleteMapping
-    public void delete(int id) {
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable int id) {
         super.delete(id);
     }
 
@@ -37,9 +39,15 @@ public class RestaurantAdminController extends AbstractRestaurantController {
         Restaurant created = super.create(restaurant);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path(REST_URL + "/{id}")
+                .path("/{id}")
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);
+    }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@RequestBody Restaurant restaurant, @PathVariable int id) {
+        super.update(restaurant, id);
     }
 }
