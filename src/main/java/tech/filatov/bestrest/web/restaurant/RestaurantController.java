@@ -17,9 +17,7 @@ public class RestaurantController extends AbstractRestaurantController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Restaurant get(@PathVariable int id) {
-        Restaurant restaurant = super.getWithDishes(id);
-        restaurant.setVotes(null);
-        return restaurant;
+        return super.getWithDishes(id);
     }
 
     @GetMapping

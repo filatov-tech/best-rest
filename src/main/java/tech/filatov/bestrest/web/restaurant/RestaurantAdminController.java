@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RestaurantAdminController extends AbstractRestaurantController {
     static final String REST_URL = "/api/admin/restaurants";
-    //TODO update
+
     @GetMapping("/{id}")
     public Restaurant get(@PathVariable int id) {
         return super.get(id);
