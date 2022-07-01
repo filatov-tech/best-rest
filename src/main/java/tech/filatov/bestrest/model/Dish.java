@@ -31,10 +31,8 @@ public class Dish extends AbstractNamedEntity{
     @NotNull
     private Restaurant restaurant;
 
-    //TODO remove date from model
-    @Column(name = "date", columnDefinition = "date default now()", updatable = false)
-    @NotNull
-    private LocalDate date = LocalDate.now();
+    @Column(name = "enabled", columnDefinition = "boolean default true")
+    private boolean enabled;
 
     public Dish(Integer id, String name, int price) {
         super(id, name);

@@ -27,16 +27,12 @@ public abstract class AbstractDishController {
         dishRepository.save(dish, 0);
     }
 
-    public List<Dish> getTodaysDishesByRestaurant(Restaurant restaurant) {
-        return dishRepository.getAllByDateAndRestaurant(LocalDate.now(), restaurant);
-    }
-
     public Dish get(int id) {
         return dishRepository.get(id);
     }
 
-    public List<Dish> getAllByRestaurant(Restaurant restaurant) {
-        return dishRepository.getAllByRestaurant(restaurant);
+    public List<Dish> getAllByRestaurant(int id) {
+        return dishRepository.getAllByRestaurant(id);
     }
 
     public void delete(int id) {

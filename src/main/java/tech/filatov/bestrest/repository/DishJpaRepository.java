@@ -14,7 +14,7 @@ import java.util.List;
 public interface DishJpaRepository extends JpaRepository<Dish, Integer> {
     List<Dish> getAllByRestaurant(Restaurant restaurant, Sort sort);
 
-    List<Dish> getAllByDateAndRestaurant(LocalDate date, Restaurant restaurant, Sort sort);
+    List<Dish> getAllEnabledDishByRestaurant(Restaurant restaurant);
 
     @Transactional
     @Modifying

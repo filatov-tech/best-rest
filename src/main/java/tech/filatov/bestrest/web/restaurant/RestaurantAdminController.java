@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import tech.filatov.bestrest.model.Dish;
 import tech.filatov.bestrest.model.Restaurant;
 
 import java.net.URI;
@@ -26,6 +27,11 @@ public class RestaurantAdminController extends AbstractRestaurantController {
     @GetMapping
     public List<Restaurant> getAll() {
         return super.getAll();
+    }
+
+    @GetMapping("/{id}/dishes")
+    public List<Dish> getAllDishesByRestaurant(@PathVariable int id) {
+        return super.getAllDishesByRestaurant(id);
     }
 
     @DeleteMapping("/{id}")

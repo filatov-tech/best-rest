@@ -37,26 +37,30 @@ VALUES (nextval('global_seq'), 'Stim'),         --100011
        (nextval('global_seq'), 'Farro')         --100014
 ;
 
-INSERT INTO dish (id, name, date, price, restaurant_id)
-VALUES (nextval('global_seq'), 'Capuccino', SYSDATE, 350, 100011),
-       (nextval('global_seq'), 'Latte', SYSDATE, 350, 100011),
-       (nextval('global_seq'), 'Sweet pipe', SYSDATE, 350, 100011),
-       (nextval('global_seq'), 'Carrot pie', SYSDATE, 350, 100011),
-       (nextval('global_seq'), 'Water', SYSDATE, 350, 100011),
-       (nextval('global_seq'), 'Espresso', SYSDATE, 500, 100012),
-       (nextval('global_seq'), 'Raf', SYSDATE, 500, 100012),
-       (nextval('global_seq'), 'Donut', SYSDATE, 500, 100012),
-       (nextval('global_seq'), 'Cheese cake', SYSDATE, 500, 100012),
-       (nextval('global_seq'), 'Pepperoni', SYSDATE, 700, 100013),
-       (nextval('global_seq'), 'Margarita', SYSDATE, 700, 100013),
-       (nextval('global_seq'), 'Pineapple', SYSDATE, 700, 100013),
-       (nextval('global_seq'), 'Ham and mushrooms', SYSDATE, 700, 100013),
-       (nextval('global_seq'), 'Lemonade', SYSDATE, 700, 100013),
-       (nextval('global_seq'), 'Grill', SYSDATE, 800, 100014),
-       (nextval('global_seq'), 'Pepper', SYSDATE, 800, 100014),
-       (nextval('global_seq'), 'Bologna', SYSDATE, 800, 100014),
-       (nextval('global_seq'), 'Margarita', SYSDATE, 800, 100014),
-       (nextval('global_seq'), 'Tar-tar', SYSDATE, 800, 100014) --100033
+INSERT INTO dish (id, name, price, restaurant_id)
+VALUES (nextval('global_seq'), 'Capuccino', 350, 100011),
+       (nextval('global_seq'), 'Latte', 350, 100011),
+       (nextval('global_seq'), 'Sweet pipe', 350, 100011),
+       (nextval('global_seq'), 'Carrot pie', 350, 100011),
+       (nextval('global_seq'), 'Water', 350, 100011),
+       (nextval('global_seq'), 'Espresso', 500, 100012),
+       (nextval('global_seq'), 'Raf', 500, 100012),
+       (nextval('global_seq'), 'Donut', 500, 100012),
+       (nextval('global_seq'), 'Cheese cake', 500, 100012),
+       (nextval('global_seq'), 'Pepperoni', 700, 100013),
+       (nextval('global_seq'), 'Margarita', 700, 100013),
+       (nextval('global_seq'), 'Pineapple', 700, 100013),
+       (nextval('global_seq'), 'Ham and mushrooms', 700, 100013),
+       (nextval('global_seq'), 'Lemonade', 700, 100013),
+       (nextval('global_seq'), 'Grill', 800, 100014),
+       (nextval('global_seq'), 'Pepper', 800, 100014),
+       (nextval('global_seq'), 'Bologna', 800, 100014),
+       (nextval('global_seq'), 'Margarita', 800, 100014),
+       (nextval('global_seq'), 'Tar-tar', 800, 100014) --100033
+;
+
+INSERT INTO dish (id, name, price, restaurant_id, enabled)
+VALUES (nextval('global_seq'), 'Donut', 500, 100012, false)
 ;
 
 INSERT INTO vote (id, date_time, restaurant_id, user_id)

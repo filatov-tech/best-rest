@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public class DishRepository {
-    public static final Sort SORT_DATE_NAME = Sort.by(Sort.Direction.DESC, "date", "name");
-    public static final Sort SORT_NAME = Sort.by(Sort.Direction.DESC,  "name");
+    public static final Sort SORT_ENABLED_NAME =
+            Sort.by("enabled").descending().and(Sort.by("name"));
 
     public final DishJpaRepository repository;
     public final RestaurantJpaRepository restaurantJpaRepository;
@@ -25,23 +25,19 @@ public class DishRepository {
         return repository.findById(id).orElse(null);
     }
 
+    public List<Dish> getAllByRestaurant(int restaurantId) {
+        return repository.getAllByRestaurant(restaurantJpaRepository.getById(restaurantId), SORT_ENABLED_NAME);
+    }
+
+    public List<Dish> getAllEnabledDishByRestaurant(Restaurant restaurant) {
+        return repository.getAllEnabledDishByRestaurant(restaurant);
+    }
+
     public Dish save(Dish dish, Integer restaurantId) {
         if (dish.isNew()) {
             dish.setRestaurant(restaurantJpaRepository.getById(restaurantId));
         }
         return repository.save(dish);
-    }
-
-    public List<Dish> getAll() {
-        return repository.findAll(SORT_DATE_NAME);
-    }
-
-    public List<Dish> getAllByRestaurant(Restaurant restaurant) {
-        return repository.getAllByRestaurant(restaurant, SORT_DATE_NAME);
-    }
-
-    public List<Dish> getAllByDateAndRestaurant(LocalDate date, Restaurant restaurant) {
-        return repository.getAllByDateAndRestaurant(date, restaurant, SORT_NAME);
     }
 
     public boolean delete(int id) {
