@@ -41,9 +41,15 @@ public class DishAdminController extends AbstractDishController {
         super.enable(id, enable);
     }
 
-    @DeleteMapping(value = {"/restaurants/{restaurantId}/dishes/{dishId}", "/dishes/{dishId}"})
+    @DeleteMapping("/restaurants/{restaurantId}/dishes/{dishId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int restaurantId, @PathVariable int dishId) {
+        super.delete(dishId);
+    }
+
+    @DeleteMapping(value = {"/dishes/{dishId}"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable int dishId) {
         super.delete(dishId);
     }
 }
