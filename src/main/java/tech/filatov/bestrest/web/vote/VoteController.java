@@ -2,29 +2,24 @@ package tech.filatov.bestrest.web.vote;
 
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tech.filatov.bestrest.AuthUser;
+import tech.filatov.bestrest.model.Vote;
 import tech.filatov.bestrest.model.dto.VoteTo;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/votes", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value =  "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class VoteController extends AbstractVoteController {
 
-    @GetMapping
+    @GetMapping("/votes")
     public List<VoteTo> getAll(@AuthenticationPrincipal AuthUser authUser) {
         return super.getAll(authUser.id());
     }
 
-    //user can see his today's vote,        /api/votes/filter?startDate=&endDate= - method uses general filter but
-    //                                                                              before inits startDate with current
-    //                                                                              date
-    //                 vote by the date     /api/votes/filter?startDate=&endDate=
-    //                 votes for all time   /api/votes
-    //user can see restaurant votes         /api/restaurant/{restaurantId}/votes - method ought to be in
-    //                                                                             RestaurantController
-
+    @PostMapping("/restaurants/{restaurantId}/votes")
+    public Vote voteForRestaurant(@PathVariable int restaurantId, @AuthenticationPrincipal AuthUser authUser) {
+        return super.voteForRestaurant(restaurantId, authUser.id());
+    }
 }

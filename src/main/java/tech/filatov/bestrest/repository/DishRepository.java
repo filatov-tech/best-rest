@@ -2,6 +2,7 @@ package tech.filatov.bestrest.repository;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.Dish;
 import tech.filatov.bestrest.model.Restaurant;
 
@@ -25,23 +26,35 @@ public class DishRepository {
         return repository.findById(id).orElse(null);
     }
 
+    public Dish getEnabled(int id) {
+        return repository.getEnabled(id);
+    }
+
     public List<Dish> getAllByRestaurant(int restaurantId) {
         return repository.getAllByRestaurant(restaurantJpaRepository.getById(restaurantId), SORT_ENABLED_NAME);
     }
 
-    public List<Dish> getAllEnabledDishByRestaurant(Restaurant restaurant) {
-        return repository.getAllEnabledDishByRestaurant(restaurant);
+    public List<Dish> getAllEnabledDishByRestaurant(int id) {
+        return repository.getAllEnabledDishByRestaurantId(id);
     }
 
-    public Dish save(Dish dish, Integer restaurantId) {
-        if (dish.isNew()) {
-            dish.setRestaurant(restaurantJpaRepository.getById(restaurantId));
-        }
+    public Dish save(Dish dish, int restaurantId) {
+        dish.setRestaurant(restaurantJpaRepository.getById(restaurantId));
         return repository.save(dish);
+    }
+
+    public void update(Dish dish) {
+        repository.save(dish);
     }
 
     public boolean delete(int id) {
         return repository.delete(id) != 0;
     }
 
+    @Transactional
+    public void enable(int id, boolean enable) {
+        Dish dish = repository.getById(id);
+        dish.setEnabled(enable);
+        repository.save(dish);
+    }
 }

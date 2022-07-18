@@ -14,7 +14,11 @@ import java.util.List;
 public interface DishJpaRepository extends JpaRepository<Dish, Integer> {
     List<Dish> getAllByRestaurant(Restaurant restaurant, Sort sort);
 
-    List<Dish> getAllEnabledDishByRestaurant(Restaurant restaurant);
+    @Query("SELECT d FROM Dish d WHERE d.id = :id AND d.enabled = true")
+    Dish getEnabled(int id);
+
+    @Query("SELECT d FROM Dish d WHERE d.restaurant.id = :id AND d.enabled = true ORDER BY d.name")
+    List<Dish> getAllEnabledDishByRestaurantId(int id);
 
     @Transactional
     @Modifying

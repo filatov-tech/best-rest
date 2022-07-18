@@ -2,11 +2,9 @@ package tech.filatov.bestrest.web.restaurant;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tech.filatov.bestrest.model.Restaurant;
+import tech.filatov.bestrest.model.Vote;
 
 import java.util.List;
 
@@ -24,4 +22,6 @@ public class RestaurantController extends AbstractRestaurantController {
     public List<Restaurant> getAll() {
         return super.getAll();
     }
+
+
 }
