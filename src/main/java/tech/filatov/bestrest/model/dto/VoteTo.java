@@ -1,5 +1,6 @@
 package tech.filatov.bestrest.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,7 +10,11 @@ import java.time.LocalDateTime;
 @Getter
 public class VoteTo {
     private int id;
+
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", timezone = "Europe/Moscow")
     private LocalDateTime dateTime;
+
     private int userId;
+
     private int restaurantId;
 }
