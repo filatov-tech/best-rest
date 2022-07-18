@@ -32,7 +32,7 @@ public class Dish extends AbstractNamedEntity{
     private Restaurant restaurant;
 
     @Column(name = "enabled", columnDefinition = "boolean default true")
-    private boolean enabled;
+    private boolean enabled = true;
 
     public Dish(Integer id, String name, int price) {
         super(id, name);
