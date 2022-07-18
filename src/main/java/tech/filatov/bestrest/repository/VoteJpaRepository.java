@@ -6,11 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.Restaurant;
-import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.model.Vote;
 import tech.filatov.bestrest.model.dto.VoteTo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

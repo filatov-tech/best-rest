@@ -2,7 +2,6 @@ package tech.filatov.bestrest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Persistable;
 import org.springframework.util.Assert;

@@ -3,10 +3,8 @@ package tech.filatov.bestrest.web.dish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import tech.filatov.bestrest.model.Dish;
-import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.repository.DishRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static tech.filatov.bestrest.util.ValidationUtil.*;

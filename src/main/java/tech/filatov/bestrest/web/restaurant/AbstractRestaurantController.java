@@ -5,7 +5,6 @@ import tech.filatov.bestrest.model.Dish;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.repository.DishRepository;
 import tech.filatov.bestrest.repository.RestaurantRepository;
-import tech.filatov.bestrest.service.VoteService;
 
 import java.util.List;
 
