@@ -6,6 +6,8 @@ import tech.filatov.bestrest.model.User;
 
 import java.util.List;
 
+import static tech.filatov.bestrest.util.ValidationUtil.checkNotFoundWithId;
+
 @Repository
 public class UserRepository {
     public static final Sort SORT_EMAIL = Sort.by(Sort.Direction.ASC, "email");
@@ -20,12 +22,12 @@ public class UserRepository {
         return repository.save(user);
     }
 
-    public boolean delete(int id) {
-        return repository.delete(id) != 0;
+    public void delete(int id) {
+        checkNotFoundWithId(repository.delete(id) != 0, id);
     }
 
     public User get(int id) {
-        return repository.findById(id).orElse(null);
+        return checkNotFoundWithId(repository.findById(id).orElse(null), id);
     }
 
     public User getRef(int id) {

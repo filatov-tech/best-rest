@@ -6,6 +6,8 @@ import tech.filatov.bestrest.model.Restaurant;
 
 import java.util.List;
 
+import static tech.filatov.bestrest.util.ValidationUtil.checkNotFoundWithId;
+
 @Repository
 public class RestaurantRepository {
     public static final Sort SORT_NAME = Sort.by(Sort.Direction.ASC, "name");
@@ -21,23 +23,23 @@ public class RestaurantRepository {
     }
 
     public Restaurant get(int id) {
-        return repository.findById(id).orElse(null);
+        return checkNotFoundWithId(repository.findById(id).orElse(null), id);
     }
 
     public Restaurant getRef(int id) {
         return repository.getById(id);
     }
 
-    public boolean delete(int id) {
-        return repository.delete(id) != 0;
+    public void delete(int id) {
+        checkNotFoundWithId(repository.delete(id) != 0, id);
     }
 
     public Restaurant getWithDishes(int id) {
-        return repository.getWithDishes(id);
+        return checkNotFoundWithId(repository.getWithDishes(id), id);
     }
 
     public Restaurant getWithVotes(int id) {
-        return repository.getWithVotes(id);
+        return checkNotFoundWithId(repository.getWithVotes(id), id);
     }
 
     public List<Restaurant> getAll() {

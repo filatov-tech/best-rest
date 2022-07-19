@@ -7,6 +7,8 @@ import tech.filatov.bestrest.model.Dish;
 
 import java.util.List;
 
+import static tech.filatov.bestrest.util.ValidationUtil.checkNotFoundWithId;
+
 @Repository
 public class DishRepository {
     public static final Sort SORT_ENABLED_NAME =
@@ -21,11 +23,11 @@ public class DishRepository {
     }
 
     public Dish get(int id) {
-        return repository.findById(id).orElse(null);
+        return checkNotFoundWithId(repository.findById(id).orElse(null), id);
     }
 
     public Dish getEnabled(int id) {
-        return repository.getEnabled(id);
+        return checkNotFoundWithId(repository.getEnabled(id), id);
     }
 
     public List<Dish> getAllByRestaurant(int restaurantId) {
@@ -45,8 +47,8 @@ public class DishRepository {
         repository.save(dish);
     }
 
-    public boolean delete(int id) {
-        return repository.delete(id) != 0;
+    public void delete(int id) {
+        checkNotFoundWithId(repository.delete(id) != 0, id);
     }
 
     @Transactional

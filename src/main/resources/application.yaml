@@ -22,6 +22,7 @@ spring:
     base-path: /api
     return-body-on-create: true
 
+
 logging:
   level:
     root: WARN
@@ -31,3 +32,6 @@ logging:
         type:
           descriptor:
             sql: trace
+server:
+  error:
+    include-message: always
