@@ -31,6 +31,7 @@ public class Vote extends AbstractBaseEntity {
 
     @Column(name = "date_time")
     @NotNull
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", timezone = "Europe/Moscow")
     protected LocalDateTime dateTime;
 
     @Override
