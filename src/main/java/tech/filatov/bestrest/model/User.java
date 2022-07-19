@@ -1,6 +1,7 @@
 package tech.filatov.bestrest.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class User extends AbstractBaseEntity implements Serializable {
     @NotNull
     @NotEmpty
     @Size(min = 6, max = 32)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @OneToOne(mappedBy = "user")
