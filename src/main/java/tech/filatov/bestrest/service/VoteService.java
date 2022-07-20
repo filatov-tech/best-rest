@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.model.Vote;
-import tech.filatov.bestrest.model.dto.VoteTo;
+import tech.filatov.bestrest.to.VoteTo;
 import tech.filatov.bestrest.repository.RestaurantRepository;
 import tech.filatov.bestrest.repository.UserRepository;
 import tech.filatov.bestrest.repository.VoteRepository;

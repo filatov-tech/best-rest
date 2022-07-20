@@ -1,4 +1,4 @@
-package tech.filatov.bestrest.model.dto;
+package tech.filatov.bestrest.to;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

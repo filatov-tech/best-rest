@@ -2,7 +2,7 @@ package tech.filatov.bestrest.web.vote;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import tech.filatov.bestrest.model.Vote;
-import tech.filatov.bestrest.model.dto.VoteTo;
+import tech.filatov.bestrest.to.VoteTo;
 import tech.filatov.bestrest.service.VoteService;
 
 import java.util.List;

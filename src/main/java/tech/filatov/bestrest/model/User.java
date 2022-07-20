@@ -3,6 +3,7 @@ package tech.filatov.bestrest.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -10,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.EnumSet;
 import java.util.Set;
 
 @Getter
@@ -43,9 +47,25 @@ public class User extends AbstractBaseEntity implements Serializable {
     @Column(name = "role")
     private Set<Role> roles;
 
+    public User(Integer id, String email, String password, Role... roles) {
+        this(id, email, password, null, Arrays.asList(roles));
+    }
+
+    public User(Integer id, String email, String password, Vote vote, Collection<Role> roles) {
+        super(id);
+        this.email = email;
+        this.password = password;
+        this.vote = vote;
+        setRoles(roles);
+    }
+
     public void setVote(Vote vote) {
         this.vote = vote;
         vote.setUser(this);
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
     }
 
     @Override

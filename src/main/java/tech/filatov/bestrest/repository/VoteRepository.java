@@ -3,7 +3,7 @@ package tech.filatov.bestrest.repository;
 import org.springframework.stereotype.Repository;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.model.Vote;
-import tech.filatov.bestrest.model.dto.VoteTo;
+import tech.filatov.bestrest.to.VoteTo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

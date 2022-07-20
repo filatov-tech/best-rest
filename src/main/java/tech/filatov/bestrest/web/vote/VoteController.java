@@ -5,7 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import tech.filatov.bestrest.AuthUser;
 import tech.filatov.bestrest.model.Vote;
-import tech.filatov.bestrest.model.dto.VoteTo;
+import tech.filatov.bestrest.to.VoteTo;
 
 import java.util.List;
 
