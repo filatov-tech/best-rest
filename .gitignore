@@ -1,6 +1,7 @@
 HELP.md
 target/
 doc/
+Dockerfile
 
 ### IntelliJ IDEA ###
 .idea
