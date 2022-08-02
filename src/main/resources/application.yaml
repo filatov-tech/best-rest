@@ -21,6 +21,9 @@ spring:
   data.rest:
     base-path: /api
     return-body-on-create: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 
 logging:

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import springfox.documentation.annotations.ApiIgnore;
 import tech.filatov.bestrest.AuthUser;
 import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.to.UserTo;
@@ -24,7 +25,7 @@ public class ProfileController extends AbstractUserController {
     public static final String REST_URL = "/api/profile";
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public User get(@AuthenticationPrincipal AuthUser authUser) {
+    public User get(@AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
         return authUser.getUser();
     }
 
@@ -39,14 +40,14 @@ public class ProfileController extends AbstractUserController {
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@RequestBody User user, @AuthenticationPrincipal AuthUser authUser) {
+    public void update(@RequestBody User user, @AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
         assureIdConsistent(user, authUser.id());
         super.update(user);
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@AuthenticationPrincipal AuthUser authUser) {
+    public void delete(@AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
         super.delete(authUser.id());
     }
 }
