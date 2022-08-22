@@ -20,9 +20,9 @@ public abstract class AbstractDishController {
         return dishRepository.save(dish, restaurantId);
     }
 
-    public void update(Dish dish, int id) {
+    public void update(Dish dish, int id, int restaurantId) {
         assureIdConsistent(dish, id);
-        dishRepository.update(dish);
+        dishRepository.update(dish, restaurantId);
     }
 
     public Dish get(int id) {

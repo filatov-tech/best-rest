@@ -4,6 +4,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.Dish;
+import tech.filatov.bestrest.model.User;
 
 import java.util.List;
 
@@ -43,7 +44,8 @@ public class DishRepository {
         return repository.save(dish);
     }
 
-    public void update(Dish dish) {
+    public void update(Dish dish,int restaurantId) {
+        dish.setRestaurant(restaurantJpaRepository.getById(restaurantId));
         repository.save(dish);
     }
 
