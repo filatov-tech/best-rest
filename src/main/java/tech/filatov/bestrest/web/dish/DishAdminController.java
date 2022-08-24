@@ -44,7 +44,7 @@ public class DishAdminController extends AbstractDishController {
 
     @DeleteMapping("/dishes/{dishId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int restaurantId, @PathVariable int dishId) {
+    public void delete(@PathVariable int dishId) {
         super.delete(dishId);
     }
 }

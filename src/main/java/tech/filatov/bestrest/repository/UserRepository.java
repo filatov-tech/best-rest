@@ -1,8 +1,10 @@
 package tech.filatov.bestrest.repository;
 
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import tech.filatov.bestrest.model.User;
+import tech.filatov.bestrest.util.UserUtil;
 
 import java.util.List;
 
@@ -14,12 +16,16 @@ public class UserRepository {
 
     private final UserJpaRepository repository;
 
-    public UserRepository(UserJpaRepository repository) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserRepository(UserJpaRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public User save(User user) {
-        return repository.save(user);
+
+        return repository.save(UserUtil.prepareToSave(user, passwordEncoder));
     }
 
     public void delete(int id) {

@@ -40,7 +40,7 @@ public class ProfileController extends AbstractUserController {
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@RequestBody User user, @AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
+    public void update(@Valid @RequestBody User user, @AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
         assureIdConsistent(user, authUser.id());
         super.update(user);
     }
