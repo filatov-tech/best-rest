@@ -13,8 +13,8 @@ import java.util.List;
 public class RestaurantUserController extends AbstractRestaurantController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Restaurant get(@PathVariable int id) {
-        return super.getWithDishes(id);
+    public Restaurant getWithEnabledDishes(@PathVariable int id) {
+        return super.getWithEnabledDishes(id);
     }
 
     @GetMapping

@@ -39,6 +39,10 @@ public class RestaurantRepository {
         return checkNotFoundWithId(repository.getWithDishes(id), id);
     }
 
+    public Restaurant getWithEnabledDishes(int id) {
+        return checkNotFoundWithId(repository.getWithEnabledDishes(id), id);
+    }
+
     public Restaurant getWithVotes(int id) {
         return checkNotFoundWithId(repository.getWithVotes(id), id);
     }

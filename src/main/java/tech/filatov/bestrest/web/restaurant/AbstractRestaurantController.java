@@ -1,9 +1,7 @@
 package tech.filatov.bestrest.web.restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import tech.filatov.bestrest.model.Dish;
 import tech.filatov.bestrest.model.Restaurant;
-import tech.filatov.bestrest.repository.DishRepository;
 import tech.filatov.bestrest.repository.RestaurantRepository;
 
 import java.util.List;
@@ -25,6 +23,10 @@ public abstract class AbstractRestaurantController {
 
     public Restaurant getWithDishes(int id) {
         return restaurantRepository.getWithDishes(id);
+    }
+
+    public Restaurant getWithEnabledDishes(int id) {
+        return restaurantRepository.getWithEnabledDishes(id);
     }
 
     public Restaurant getWithVotes(int id) {

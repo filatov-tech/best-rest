@@ -24,6 +24,11 @@ public class RestaurantAdminController extends AbstractRestaurantController {
         return super.get(id);
     }
 
+    @GetMapping("/{id}/with-dishes")
+    public Restaurant getWithDishes(@PathVariable int id) {
+        return super.getWithDishes(id);
+    }
+
     @GetMapping
     public List<Restaurant> getAll() {
         return super.getAll();
