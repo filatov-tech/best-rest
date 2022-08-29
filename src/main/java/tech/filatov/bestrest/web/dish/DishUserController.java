@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
-public class DishController extends AbstractDishController {
+public class DishUserController extends AbstractDishController {
 
     @GetMapping("/restaurants/{id}/dishes")
     public List<Dish> getDishesByRestaurant(@PathVariable int id) {

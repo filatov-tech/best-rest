@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/restaurants")
 @AllArgsConstructor
-public class RestaurantController extends AbstractRestaurantController {
+public class RestaurantUserController extends AbstractRestaurantController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Restaurant get(@PathVariable int id) {
