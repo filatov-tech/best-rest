@@ -23,7 +23,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public List<Restaurant> getAll() {
-        return restaurantRepository.getAll();
+        return restaurantRepository.getAllWithEnabledDishes();
     }
 
     public Restaurant getWithDishes(int id) {

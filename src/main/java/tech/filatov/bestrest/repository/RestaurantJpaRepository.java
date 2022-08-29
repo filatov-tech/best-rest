@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.Restaurant;
 
+import java.util.List;
+
 public interface RestaurantJpaRepository extends JpaRepository<Restaurant, Integer> {
     @Transactional
     @Modifying
@@ -20,4 +22,7 @@ public interface RestaurantJpaRepository extends JpaRepository<Restaurant, Integ
     @EntityGraph(attributePaths = {"votes"}, type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT r FROM Restaurant r WHERE r.id=?1")
     Restaurant getWithVotes(int id);
+
+    @Query("SELECT DISTINCT r FROM Restaurant r LEFT OUTER JOIN FETCH r.dishes d WHERE d.enabled = true ORDER BY r.name")
+    List<Restaurant> getAllWithEnabledDishes();
 }

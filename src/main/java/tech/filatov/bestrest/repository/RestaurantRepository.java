@@ -2,6 +2,7 @@ package tech.filatov.bestrest.repository;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import tech.filatov.bestrest.model.Restaurant;
 
 import java.util.List;
@@ -42,7 +43,13 @@ public class RestaurantRepository {
         return checkNotFoundWithId(repository.getWithVotes(id), id);
     }
 
+    @Transactional
     public List<Restaurant> getAll() {
         return repository.findAll(SORT_NAME);
+    }
+
+    @Transactional
+    public List<Restaurant> getAllWithEnabledDishes() {
+        return repository.getAllWithEnabledDishes();
     }
 }
