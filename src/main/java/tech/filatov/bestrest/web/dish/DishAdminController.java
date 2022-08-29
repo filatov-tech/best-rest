@@ -21,8 +21,8 @@ public class DishAdminController extends AbstractDishController {
     }
 
     @GetMapping("/dishes")
-    public List<Dish> getAllByRestaurant(@PathVariable int id) {
-        return super.getAllByRestaurant(id);
+    public List<Dish> getAllByRestaurant(@PathVariable int restaurantId) {
+        return super.getAllByRestaurant(restaurantId);
     }
 
     @PostMapping(value = "/dishes", consumes = MediaType.APPLICATION_JSON_VALUE)
