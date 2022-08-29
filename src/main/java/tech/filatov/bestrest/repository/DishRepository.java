@@ -35,8 +35,8 @@ public class DishRepository {
         return repository.getAllByRestaurant(restaurantJpaRepository.getById(restaurantId), SORT_ENABLED_NAME);
     }
 
-    public List<Dish> getAllEnabledDishByRestaurant(int id) {
-        return repository.getAllEnabledDishByRestaurantId(id);
+    public List<Dish> getAllEnabledByRestaurant(int id) {
+        return repository.getAllEnabledByRestaurantId(id);
     }
 
     public Dish save(Dish dish, int restaurantId) {

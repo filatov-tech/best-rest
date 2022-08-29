@@ -9,6 +9,7 @@ import tech.filatov.bestrest.model.Dish;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/restaurants/{restaurantId}")
@@ -17,6 +18,11 @@ public class DishAdminController extends AbstractDishController {
     @GetMapping("/dishes/{dishId}")
     public Dish get(@PathVariable int dishId) {
         return super.get(dishId);
+    }
+
+    @GetMapping("/dishes")
+    public List<Dish> getAllByRestaurant(@PathVariable int id) {
+        return super.getAllByRestaurant(id);
     }
 
     @PostMapping(value = "/dishes", consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -15,9 +15,6 @@ public abstract class AbstractRestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @Autowired
-    private DishRepository dishRepository;
-
     public Restaurant get(int id) {
         return restaurantRepository.get(id);
     }
@@ -32,10 +29,6 @@ public abstract class AbstractRestaurantController {
 
     public Restaurant getWithVotes(int id) {
         return restaurantRepository.getWithVotes(id);
-    }
-
-    public List<Dish> getAllDishesByRestaurant(int id) {
-        return dishRepository.getAllByRestaurant(id);
     }
 
     public void delete(int id) {

@@ -17,7 +17,7 @@ public interface DishJpaRepository extends JpaRepository<Dish, Integer> {
     Dish getEnabled(int id);
 
     @Query("SELECT d FROM Dish d WHERE d.restaurant.id = :id AND d.enabled = true ORDER BY d.name")
-    List<Dish> getAllEnabledDishByRestaurantId(int id);
+    List<Dish> getAllEnabledByRestaurantId(int id);
 
     @Transactional
     @Modifying

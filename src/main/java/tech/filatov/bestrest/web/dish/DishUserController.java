@@ -13,12 +13,12 @@ import java.util.List;
 public class DishUserController extends AbstractDishController {
 
     @GetMapping("/restaurants/{id}/dishes")
-    public List<Dish> getDishesByRestaurant(@PathVariable int id) {
-        return super.getAllEnabledDishesByRestaurant(id);
+    public List<Dish> getAllEnabledByRestaurant(@PathVariable int id) {
+        return super.getAllEnabledByRestaurant(id);
     }
 
     @GetMapping("/dishes/{id}")
-    public Dish get(@PathVariable int id) {
+    public Dish getEnabled(@PathVariable int id) {
         return super.getEnabled(id);
     }
 }

@@ -37,8 +37,8 @@ public abstract class AbstractDishController {
         return dishRepository.getAllByRestaurant(id);
     }
 
-    public List<Dish> getAllEnabledDishesByRestaurant(int id) {
-        return dishRepository.getAllEnabledDishByRestaurant(id);
+    public List<Dish> getAllEnabledByRestaurant(int id) {
+        return dishRepository.getAllEnabledByRestaurant(id);
     }
 
     public void delete(int id) {

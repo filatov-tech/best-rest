@@ -29,11 +29,6 @@ public class RestaurantAdminController extends AbstractRestaurantController {
         return super.getAll();
     }
 
-    @GetMapping("/{id}/dishes")
-    public List<Dish> getAllDishesByRestaurant(@PathVariable int id) {
-        return super.getAllDishesByRestaurant(id);
-    }
-
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id) {
