@@ -23,4 +23,4 @@ Each restaurant provides a new menu each day.
 As a result, provide a link to github repository. It should contain the code, README.md with API documentation and couple curl commands to test it (**better - link to Swagger**).
 
 ## API spec
-[LINK TO SWAGGER](http://filatov.tech/swagger-ui/index.html#/)
+[LINK TO SWAGGER](http://filatov.tech/best-rest/api/v1/swagger-ui/index.html#/)
