@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/restaurants/{restaurantId}")
+@RequestMapping("/admin/restaurants/{restaurantId}")
 public class DishAdminController extends AbstractDishController {
 
     @GetMapping("/dishes/{dishId}")

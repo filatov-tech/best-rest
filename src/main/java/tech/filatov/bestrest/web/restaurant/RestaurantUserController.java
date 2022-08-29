@@ -8,7 +8,7 @@ import tech.filatov.bestrest.model.Restaurant;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/restaurants")
+@RequestMapping("/restaurants")
 @AllArgsConstructor
 public class RestaurantUserController extends AbstractRestaurantController {
 

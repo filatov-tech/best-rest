@@ -22,7 +22,7 @@ import static tech.filatov.bestrest.util.ValidationUtil.assureIdConsistent;
 @RequestMapping(value = ProfileController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProfileController extends AbstractUserController {
 
-    public static final String REST_URL = "/api/profile";
+    public static final String REST_URL = "/profile";
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public User get(@AuthenticationPrincipal @ApiIgnore AuthUser authUser) {

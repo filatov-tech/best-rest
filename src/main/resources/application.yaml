@@ -36,5 +36,7 @@ logging:
           descriptor:
             sql: trace
 server:
+  servlet:
+    context-path: /best-rest/api/v1
   error:
     include-message: always

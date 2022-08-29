@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(value = RestaurantAdminController.REST_URL)
 @AllArgsConstructor
 public class RestaurantAdminController extends AbstractRestaurantController {
-    static final String REST_URL = "/api/admin/restaurants";
+    static final String REST_URL = "/admin/restaurants";
 
     @GetMapping("/{id}")
     public Restaurant get(@PathVariable int id) {

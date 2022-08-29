@@ -11,7 +11,7 @@ import tech.filatov.bestrest.to.VoteTo;
 import java.util.List;
 
 @RestController
-@RequestMapping(value =  "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class VoteController extends AbstractVoteController {
 
     @GetMapping("/votes")

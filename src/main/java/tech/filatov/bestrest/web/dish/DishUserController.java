@@ -9,7 +9,6 @@ import tech.filatov.bestrest.model.Dish;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
 public class DishUserController extends AbstractDishController {
 
     @GetMapping("/restaurants/{id}/dishes")

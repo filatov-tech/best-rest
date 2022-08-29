@@ -9,7 +9,7 @@ import tech.filatov.bestrest.model.User;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/users")
+@RequestMapping("/admin/users")
 public class UserAdminController extends AbstractUserController {
 
     @GetMapping("/{id}")
@@ -17,7 +17,7 @@ public class UserAdminController extends AbstractUserController {
         return super.get(id);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<User> get() {
         return super.getAll();
     }
