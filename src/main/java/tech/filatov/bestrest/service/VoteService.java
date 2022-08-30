@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import tech.filatov.bestrest.model.Restaurant;
 import tech.filatov.bestrest.model.User;
 import tech.filatov.bestrest.model.Vote;
+import tech.filatov.bestrest.to.VoteResultTo;
 import tech.filatov.bestrest.to.VoteTo;
 import tech.filatov.bestrest.repository.RestaurantRepository;
 import tech.filatov.bestrest.repository.UserRepository;
@@ -46,6 +47,10 @@ public class VoteService {
 
     public List<Vote> getRestaurantVotes(int restaurantId) {
         return voteRepository.getRestaurantVotes(restaurantRepository.get(restaurantId));
+    }
+
+    public List<VoteResultTo> getVotingResult() {
+        return voteRepository.getVotingResult();
     }
 
     public List<VoteTo> getAll(int userId) {
