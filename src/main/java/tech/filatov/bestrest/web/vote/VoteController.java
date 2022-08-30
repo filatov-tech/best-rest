@@ -39,11 +39,4 @@ public class VoteController {
     public List<VoteResultTo> getVotingResult() {
         return voteService.getVotingResult();
     }
-
-    // Голоса за ресторан List<Vote> getVotesByRestaurant(int id)
-
-    // Чарт голосов List<VoteResultTo> getVotingResult()
-    // Это объект с двумя полями: id ресторана и int количество голосов.
-    // Список отсортирован в порядке убывания голосов
-    // запрос ресторанов с голосами -> преобразование в VoteResultTo
 }
