@@ -39,6 +39,7 @@ public class VoteService {
             vote = new Vote(user, restaurant, LocalDateTime.now());
         } else if (canChangeTodaysVote()) {
             vote.setRestaurant(restaurant);
+            vote.setDateTime(LocalDateTime.now());
         } else {
            throw new AlreadyVotedException("User with id=" + userId + " is already voted. Vote can only be changed until 11:00 AM");
         }
