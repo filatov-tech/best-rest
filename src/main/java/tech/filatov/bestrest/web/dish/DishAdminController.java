@@ -16,7 +16,7 @@ import java.util.List;
 public class DishAdminController extends AbstractDishController {
 
     @GetMapping("/dishes/{dishId}")
-    public Dish get(@PathVariable int dishId) {
+    public Dish get(@PathVariable int restaurantId, @PathVariable int dishId) {
         return super.get(dishId);
     }
 
@@ -44,13 +44,13 @@ public class DishAdminController extends AbstractDishController {
 
     @PatchMapping("/dishes/{dishId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void enable(@PathVariable int dishId, @RequestParam boolean enable) {
+    public void enable(@PathVariable int restaurantId, @PathVariable int dishId, @RequestParam boolean enable) {
         super.enable(dishId, enable);
     }
 
     @DeleteMapping("/dishes/{dishId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int dishId) {
+    public void delete(@PathVariable int restaurantId, @PathVariable int dishId) {
         super.delete(dishId);
     }
 }
