@@ -2,7 +2,6 @@ package tech.filatov.bestrest.web.dish;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tech.filatov.bestrest.model.Dish;
 

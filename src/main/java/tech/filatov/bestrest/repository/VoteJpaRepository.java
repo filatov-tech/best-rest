@@ -10,7 +10,6 @@ import tech.filatov.bestrest.model.Vote;
 import tech.filatov.bestrest.to.VoteResultTo;
 import tech.filatov.bestrest.to.VoteTo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
