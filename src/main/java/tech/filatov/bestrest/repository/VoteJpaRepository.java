@@ -26,10 +26,10 @@ public interface VoteJpaRepository extends JpaRepository<Vote, Integer> {
     List<VoteTo> getUserVote(@Param("userId") int userId);
 
     @Query("" +
-            "SELECT new tech.filatov.bestrest.to.VoteResultTo(r.id, COUNT(r.id)) " +
+            "SELECT new tech.filatov.bestrest.to.VoteResultTo(r.id, r.name, COUNT(r.id)) " +
             "FROM Restaurant r LEFT OUTER JOIN Vote v ON r.id = v.restaurant.id " +
             "WHERE v.dateTime > :currentDate " +
-            "GROUP BY r.id " +
+            "GROUP BY r.id, r.name " +
             "ORDER BY COUNT(r.id) DESC")
     List<VoteResultTo> getVotingResult(LocalDateTime currentDate);
 

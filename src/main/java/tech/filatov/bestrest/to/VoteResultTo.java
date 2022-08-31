@@ -11,6 +11,8 @@ public class VoteResultTo {
 
     private int restaurantId;
 
+    private String name;
+
     @Size(min = 1)
     private long votesNumber;
 }
