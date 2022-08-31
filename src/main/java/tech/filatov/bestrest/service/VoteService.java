@@ -45,8 +45,8 @@ public class VoteService {
         return voteRepository.save(vote);
     }
 
-    public List<Vote> getRestaurantVotes(int restaurantId) {
-        return voteRepository.getRestaurantVotes(restaurantRepository.get(restaurantId));
+    public List<Vote> getTodaysVotesByRestaurant(int restaurantId) {
+        return voteRepository.getTodaysVotesByRestaurant(restaurantRepository.get(restaurantId));
     }
 
     public List<VoteResultTo> getVotingResult() {
@@ -58,7 +58,7 @@ public class VoteService {
     }
 
     public int getNumberOfVotesForRestaurant(int restaurantId) {
-        List<Vote> votes = voteRepository.getRestaurantVotes(restaurantRepository.get(restaurantId));
+        List<Vote> votes = voteRepository.getTodaysVotesByRestaurant(restaurantRepository.get(restaurantId));
         return votes.size();
     }
 

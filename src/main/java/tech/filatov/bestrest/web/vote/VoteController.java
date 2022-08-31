@@ -40,8 +40,8 @@ public class VoteController {
     }
 
     @GetMapping("/restaurants/{restaurantId}/votes")
-    public List<Vote> getVotesByRestaurant(@PathVariable int restaurantId) {
-        return voteService.getRestaurantVotes(restaurantId);
+    public List<Vote> getTodaysVotesByRestaurant(@PathVariable int restaurantId) {
+        return voteService.getTodaysVotesByRestaurant(restaurantId);
     }
 
     @GetMapping("/restaurants/votes")

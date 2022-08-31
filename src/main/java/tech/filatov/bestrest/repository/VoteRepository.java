@@ -27,7 +27,7 @@ public class VoteRepository {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Vote> getRestaurantVotes(Restaurant restaurant) {
+    public List<Vote> getTodaysVotesByRestaurant(Restaurant restaurant) {
         return repository.getVotesByRestaurantAndDateTimeIsAfter(restaurant, LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
     }
 
