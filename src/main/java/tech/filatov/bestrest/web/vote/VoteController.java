@@ -28,6 +28,11 @@ public class VoteController {
         return voteService.getAll(authUser.id());
     }
 
+    @GetMapping("/votes/{id}")
+    public Vote get(@PathVariable int id) {
+        return voteService.get(id);
+    }
+
     @PostMapping("/restaurants/{restaurantId}/votes")
     public ResponseEntity<Vote> voteForRestaurant(@PathVariable int restaurantId, @AuthenticationPrincipal @ApiIgnore AuthUser authUser) {
         Vote vote = voteService.voteForRestaurant(restaurantId, authUser.id());
