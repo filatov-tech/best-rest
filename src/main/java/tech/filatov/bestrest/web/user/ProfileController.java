@@ -33,8 +33,10 @@ public class ProfileController extends AbstractUserController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> register(@Valid @RequestBody UserTo userTo) {
         User created = super.create(userTo);
+
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path(REST_URL).build().toUri();
+                .build().toUri();
+
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
