@@ -1,6 +1,7 @@
 INSERT INTO users (email, password, id)
 VALUES
-    ('user1@yandex.ru', '{noop}123456', nextval('global_seq')),
+    ('user@yandex.ru', '{noop}password', nextval('global_seq')),
+    ('user1@yandex.ru', '{noop}password', nextval('global_seq')),
     ('user2@yandex.ru', '{noop}password', nextval('global_seq')),
     ('user3@yandex.ru', '{noop}password', nextval('global_seq')),
     ('user4@yandex.ru', '{noop}password', nextval('global_seq')),
@@ -8,9 +9,8 @@ VALUES
     ('user6@yandex.ru', '{noop}password', nextval('global_seq')),
     ('user7@yandex.ru', '{noop}password', nextval('global_seq')),
     ('user8@yandex.ru', '{noop}password', nextval('global_seq')),
-    ('user9@yandex.ru', '{noop}password', nextval('global_seq')),
-    ('admin1@yandex.ru', '{noop}password', nextval('global_seq')),
-    ('admin2@yandex.ru', '{noop}password', nextval('global_seq'))
+    ('admin@yandex.ru', '{noop}password', nextval('global_seq')),
+    ('admin1@yandex.ru', '{noop}password', nextval('global_seq'))
 ;
 
 INSERT INTO user_roles (role, user_id)
