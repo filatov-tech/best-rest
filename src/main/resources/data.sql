@@ -65,16 +65,11 @@ VALUES (nextval('global_seq'), 'Donut', 500, 100012, false)
 
 INSERT INTO vote (id, date_time, restaurant_id, user_id)
 VALUES (nextval('global_seq'), SYSDATE, 100012, 100000),
-       (nextval('global_seq'), SYSDATE, 100011, 100001),
-       (nextval('global_seq'), SYSDATE, 100012, 100002),
+       (nextval('global_seq'), TIMESTAMPADD(HOUR, 10, DATE_TRUNC('DAY', CURRENT_TIMESTAMP)), 100011, 100001),
+       (nextval('global_seq'), TIMESTAMPADD(HOUR, 12, DATE_TRUNC('DAY', CURRENT_TIMESTAMP)), 100012, 100002),
        (nextval('global_seq'), SYSDATE, 100014, 100003),
        (nextval('global_seq'), SYSDATE, 100014, 100004),
        (nextval('global_seq'), SYSDATE, 100013, 100005),
        (nextval('global_seq'), PARSEDATETIME('29.06.2022 15:00', 'dd.MM.yyyy HH:mm'), 100014, 100006),
        (nextval('global_seq'), PARSEDATETIME('29.06.2022 10:00', 'dd.MM.yyyy HH:mm'), 100011, 100000)
 ;
-
-
-
-
-
