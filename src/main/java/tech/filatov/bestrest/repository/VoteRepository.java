@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class VoteRepository {
@@ -25,6 +26,11 @@ public class VoteRepository {
 
     public Vote get(int id) {
         return repository.findById(id).orElse(null);
+    }
+
+    public Vote getUserTodaysVote(int userId) {
+        return repository.getUserTodaysVote(userId, LocalDateTime.of(LocalDate.now(), LocalTime.MIN))
+                .orElse(null);
     }
 
     public List<Vote> getTodaysVotesByRestaurant(Restaurant restaurant) {

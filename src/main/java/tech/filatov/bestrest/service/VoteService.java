@@ -32,10 +32,10 @@ public class VoteService {
 
     public Vote voteForRestaurant(int restaurantId, int userId) {
         Restaurant restaurant = restaurantRepository.getRef(restaurantId);
-        User user = userRepository.get(userId);
-        Vote vote = user.getVote();
+        User user = userRepository.getRef(userId);
+        Vote vote = voteRepository.getUserTodaysVote(userId);
 
-        if (vote == null || userNotVotingToday(vote.getDateTime())) {
+        if (vote == null) {
             vote = new Vote(user, restaurant, LocalDateTime.now());
         } else if (canChangeTodaysVote()) {
             vote.setRestaurant(restaurant);
