@@ -60,7 +60,10 @@ VALUES (nextval('global_seq'), 'Capuccino', 350, 100011),
 ;
 
 INSERT INTO dish (id, name, price, restaurant_id, enabled)
-VALUES (nextval('global_seq'), 'Donut', 500, 100012, false)
+VALUES (nextval('global_seq'), 'Cookies', 500, 100011, false),
+       (nextval('global_seq'), 'Donut', 500, 100012, false),
+       (nextval('global_seq'), 'Tea', 500, 100013, false),
+       (nextval('global_seq'), 'Chili', 500, 100014, false)
 ;
 
 INSERT INTO vote (id, date_time, restaurant_id, user_id)
