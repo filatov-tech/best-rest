@@ -26,9 +26,7 @@ As a result, provide a link to github repository. It should contain the code, RE
 Each restaurant has its own list of available and unavailable dishes. The restaurant menu contains enabled ones, which all the users can see. When an administrator creates new dishes, they become available by default. If the dish is not needed, the administrator disables it by sending a PATCH request to URI of dish with parameter `enable=false`. The dish remains in the database and can be enabled at any time. This allows to update the restaurant menu by including and excluding dishes.
 
 ## API spec
-The project is deployed on the personal server. You can use `filatov.tech` instead of `localhost:8080` to check documentation without running project on your machine.
-
-Documentation: [Online](http://filatov.tech/best-rest/api/v1/swagger-ui/index.html#/ "Online") | [Local](http://localhost:8080/best-rest/api/v1/swagger-ui/index.html#/ "Local")
+Documentation: [Local](http://localhost:8080/best-rest/api/v1/swagger-ui/index.html#/ "Local")
 
 Credentials:
 - **Admin** - admin@yandex.ru : password
